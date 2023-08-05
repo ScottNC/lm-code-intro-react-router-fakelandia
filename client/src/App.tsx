@@ -17,7 +17,7 @@ function App() {
         <Route path="/home" Component={Home} />
         <Route path="/misdemeanour" Component={Misdemeanour} />
         <Route path="/confession" Component={Confession} />
-        <Route Component={NotFound} />
+        <Route path="/*" Component={NotFound} />
       </Routes>
       </Router>
     </>
