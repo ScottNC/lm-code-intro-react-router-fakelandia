@@ -28,7 +28,7 @@ export const MisdemeanourTable: React.FC = () => {
     return filter === 'no filter' || misdemeanour.misdemeanour === filter;
   }
 
-  return (
+  return misdemeanours.length ? (
     <MisdemeanourContext.Provider value={{ misdemeanours, filter, setFilter }}>
       <div className="text">
         <table className="table">
@@ -44,5 +44,11 @@ export const MisdemeanourTable: React.FC = () => {
         </table>
       </div>
     </MisdemeanourContext.Provider>
+  ) : (
+    <div className="text">
+      <p className="text__paragraph">
+        Misdemeanours Loading....
+      </p>
+    </div>
   );
 };
