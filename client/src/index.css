@@ -80,6 +80,7 @@ table, th, td {
 }
 
 .table--row--item {
+  max-width: 15rem;
   padding: 10px;
 }
 
@@ -87,4 +88,8 @@ table, th, td {
   font-weight: bold;
   text-align: center;
   vertical-align: top;
+}
+
+.table--row--item--text {
+  max-width: 10rem;
 }
