@@ -1,12 +1,4 @@
-import { Misdemeanour } from "../types/misdemeanours.types"
-import { MISDEMEANOURS } from "../types/misdemeanours.types"
-
-const misdemeanourDisplay : {[key in typeof MISDEMEANOURS[number]] : string} = {
-  rudeness: 'Mild Public Rudeness 🤪',
-  lift: 'Speaking in a Lift 🗣',
-  vegetables: 'Not Eating Your Vegetables 🥗',
-  united: 'Supporting Manchester United 😈'
-}
+import { Misdemeanour, misdemeanourDisplay } from "../types/misdemeanours.types"
 
 export const MisdemeanourRow : React.FC<Misdemeanour> = ({citizenId, date, misdemeanour}) => (<>
   <tr className="table--row">

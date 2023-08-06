@@ -14,3 +14,10 @@ export type Misdemeanour = {
 	misdemeanour: MisdemeanourKind;
 	date: string; // we'll stringify this for easy sending via HTTP rather than storing the full Date object
 };
+
+export const misdemeanourDisplay : {[key in typeof MISDEMEANOURS[number]] : string} = {
+  rudeness: 'Mild Public Rudeness 🤪',
+  lift: 'Speaking in a Lift 🗣',
+  vegetables: 'Not Eating Your Vegetables 🥗',
+  united: 'Supporting Manchester United 😈'
+}
