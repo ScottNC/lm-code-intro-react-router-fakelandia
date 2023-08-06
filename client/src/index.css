@@ -51,6 +51,9 @@ body {
 
 .header__card--link a:hover {
   background-color: var(--grey);
+}
+
+.header__card--link a:active {
   color: var(--orange);
 }
 
