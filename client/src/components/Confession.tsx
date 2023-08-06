@@ -1,1 +1,1 @@
-export const Confession : React.FC = () => <>Confession!</>;
+export const Confession : React.FC = () => <div className="text">Confession!</div>;
