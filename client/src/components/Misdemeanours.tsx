@@ -1,6 +1,6 @@
 import { MisdemeanourTable } from "./MisdemeanourTable";
 
-export const Misdemeanour : React.FC = () => {
+export const Misdemeanours : React.FC = () => {
 
   return (<>
     <MisdemeanourTable></MisdemeanourTable>
