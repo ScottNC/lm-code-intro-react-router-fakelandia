@@ -1,1 +1,8 @@
-export const Misdemeanour : React.FC = () => <div className="text">Misdemeanour!</div>;
+import { MisdemeanourTable } from "./MisdemeanourTable";
+
+export const Misdemeanour : React.FC = () => {
+
+  return (<>
+    <MisdemeanourTable></MisdemeanourTable>
+  </>)
+};

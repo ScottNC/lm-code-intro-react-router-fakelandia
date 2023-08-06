@@ -60,3 +60,28 @@ body {
   align-items: center;
   margin: 20px;
 }
+
+.table__container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+table, th, td {
+  border: 1px solid;
+}
+
+.table {
+  border-collapse: collapse;
+  margin: 20px;
+}
+
+.table--row--item {
+  padding: 10px;
+}
+
+.table--row--item--title {
+  font-weight: bold;
+  text-align: center;
+  vertical-align: top;
+}
