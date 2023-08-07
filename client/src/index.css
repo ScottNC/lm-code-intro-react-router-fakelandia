@@ -12,7 +12,6 @@ body {
 
 .header__container {
   background-color: var(--dark);
-  color: var(--light);
   padding: 10px;
   display: flex;
   align-items: center;
@@ -26,6 +25,11 @@ body {
   font-size: 28px;
   margin: 0;
   padding-left: 10%;
+}
+
+.header__card--title--link {
+  color: var(--orange);
+  text-decoration: none;
 }
 
 .header__card--navbar {
