@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { MISDEMEANOURS, MisdemeanourKind, misdemeanourDisplay } from "../types/misdemeanours.types"
-import { Filter, MisdemeanourContext } from "./MisdemeanourTable";
+import { Filter, FilterContext } from "./MisdemeanourTable";
 
 export const MisdemeanourFilter : React.FC = () => {
 
@@ -8,7 +8,7 @@ export const MisdemeanourFilter : React.FC = () => {
     setFilter(event.target.value as Filter);
   }
 
-  const {filter, setFilter} = useContext(MisdemeanourContext);
+  const {filter, setFilter} = useContext(FilterContext);
   
   return (
   <select className="table--row--item--menu form__text--answer--select" onChange={changeFilter} value={filter}>
