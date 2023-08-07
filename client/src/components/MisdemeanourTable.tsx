@@ -4,6 +4,7 @@ import { MisdemeanourRow } from "./MisdemeanourRow";
 import { MisdemeanourFilter } from "./MisdemeanourFilter";
 import { MISDEMEANOURS } from "../types/misdemeanours.types";
 import { MisdemeanoursContext } from "../App";
+import { v4 } from "uuid";
 
 export type Filter = typeof MISDEMEANOURS[number] | 'no filter';
 
@@ -42,7 +43,7 @@ export const MisdemeanourTable: React.FC = () => {
               <th className="table--row--item table--row--item--title"><p>Punishment Idea</p></th>
             </tr>
             {[...extraMisdemeanours, ...misdemeanours].filter(filterMisdemeanour).map((misdemeanour: Misdemeanour) => (
-              <MisdemeanourRow citizenId={misdemeanour.citizenId} date={misdemeanour.date} misdemeanour={misdemeanour.misdemeanour}/>
+              <MisdemeanourRow key={v4()} citizenId={misdemeanour.citizenId} date={misdemeanour.date} misdemeanour={misdemeanour.misdemeanour}/>
             ))}
           </tbody>
         </table>

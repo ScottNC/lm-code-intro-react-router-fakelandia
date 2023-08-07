@@ -1,7 +1,7 @@
 import { Misdemeanour, misdemeanourDisplay } from "../types/misdemeanours.types"
 
 export const MisdemeanourRow : React.FC<Misdemeanour> = ({citizenId, date, misdemeanour}) => (<>
-  <tr key={citizenId} className="table--row">
+  <tr className="table--row">
     <td className="table--row--item table--row--item--text">{citizenId}</td>
     <td className="table--row--item table--row--item--text">{date}</td>
     <td className="table--row--item table--row--item--text">{misdemeanourDisplay[misdemeanour]}</td>
