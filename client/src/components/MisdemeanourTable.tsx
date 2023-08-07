@@ -34,15 +34,17 @@ export const MisdemeanourTable: React.FC = () => {
     <FilterContext.Provider value={{ filter, setFilter }}>
       <div className="text">
         <table className="table">
-          <tr className="table--row">
-            <th className="table--row--item table--row--item--title"><p>Citizen ID</p></th>
-            <th className="table--row--item table--row--item--title"><p>Date</p></th>
-            <th className="table--row--item table--row--item--title"><p>Misdemeanour</p> <MisdemeanourFilter /> </th>
-            <th className="table--row--item table--row--item--title"><p>Punishment Idea</p></th>
-          </tr>
-          {[...extraMisdemeanours, ...misdemeanours].filter(filterMisdemeanour).map((misdemeanour: Misdemeanour) => (
-            <MisdemeanourRow citizenId={misdemeanour.citizenId} date={misdemeanour.date} misdemeanour={misdemeanour.misdemeanour}/>
-          ))}
+          <tbody>
+            <tr className="table--row">
+              <th className="table--row--item table--row--item--title"><p>Citizen ID</p></th>
+              <th className="table--row--item table--row--item--title"><p>Date</p></th>
+              <th className="table--row--item table--row--item--title"><p>Misdemeanour</p> <MisdemeanourFilter /> </th>
+              <th className="table--row--item table--row--item--title"><p>Punishment Idea</p></th>
+            </tr>
+            {[...extraMisdemeanours, ...misdemeanours].filter(filterMisdemeanour).map((misdemeanour: Misdemeanour) => (
+              <MisdemeanourRow citizenId={misdemeanour.citizenId} date={misdemeanour.date} misdemeanour={misdemeanour.misdemeanour}/>
+            ))}
+          </tbody>
         </table>
       </div>
     </FilterContext.Provider>
