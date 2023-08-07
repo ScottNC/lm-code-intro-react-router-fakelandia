@@ -50,20 +50,21 @@ export const ConfessionForm : React.FC = () => {
   return (
     <fieldset className='form__border'>
       <form className="text" onSubmit={handleSubmit}>
-        <div className="form__text--right">
-          <label className="form__text">Subject:</label>
-          <input className="form__text form__text--answer form__text--answer--fill form__text--right--fill" type="text" ref={subjectRef} required/>
+        <div className="form__text">
+          <label className="form__text--label">Subject:</label>
+          <input className="form__text form__text--answer form__text--answer--fill" type="text" ref={subjectRef} required/>
         </div>
-        <div className="form__text--right">
-          <label className="form__text" >Reason for contact:</label>
-          <select className="form__text form__text--answer form__text--answer--select form__text--right--fill" ref={reasonRef}>
+        <div className="form__text">
+          <label className="form__text--label" >Reason for contact:</label>
+          <select className="form__text form__text--answer form__text--answer--select" ref={reasonRef}>
           {Object.entries(reasons).map(([key, value]: [string, string]) => (
             <option key={key} value={key}>{value}</option>
           ))}
           </select>
         </div>
-        <div className="form__text--answer--fill--big">
-          <textarea className="form__text form__text--answer form__text--answer--fill" rows={7} cols={60} ref={detailsRef} required/>
+        <div className="form__text">
+        <label className="form__text--label" >Details:</label>
+          <textarea className="form__text form__text--answer form__text--answer--fill" rows={5} cols={30} ref={detailsRef} required/>
         </div>
         <button className="form__text form__text--answer form__text--answer--submit" type="submit">Confess</button>
       </form>
