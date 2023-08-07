@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { MISDEMEANOURS } from "../types/misdemeanours.types"
+import { MISDEMEANOURS, MisdemeanourKind, misdemeanourDisplay } from "../types/misdemeanours.types"
 import { Filter, MisdemeanourContext } from "./MisdemeanourTable";
 
 export const MisdemeanourFilter : React.FC = () => {
@@ -11,9 +11,10 @@ export const MisdemeanourFilter : React.FC = () => {
   const {filter, setFilter} = useContext(MisdemeanourContext);
   
   return (
-  <select className="table--row--item--menu" onChange={changeFilter} value={filter}>
-    {['no filter', ...MISDEMEANOURS].map((misdemeanourName : string) => (
-      <option value={misdemeanourName}>{misdemeanourName}</option>
+  <select className="table--row--item--menu form__text--answer--select" onChange={changeFilter} value={filter}>
+    <option value={'no filter'}>No filter</option>
+    {MISDEMEANOURS.map((misdemeanourName : MisdemeanourKind) => (
+      <option value={misdemeanourName}>{misdemeanourDisplay[misdemeanourName]}</option>
     ))}
   </select>)
 }

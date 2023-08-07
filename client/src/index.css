@@ -1,7 +1,7 @@
 :root {
 	--dark: #303841;
 	--light: #eeeeee;
-	--grey: #3a4750;
+	--grey: #484e53;
 	--orange: #ea9215;
 }
 
@@ -71,7 +71,8 @@ body {
 }
 
 table, th, td {
-  border: 1px solid;
+  border: 3px solid;
+  border-color: var(--dark);
 }
 
 .table {
@@ -88,6 +89,8 @@ table, th, td {
   font-weight: bold;
   text-align: center;
   vertical-align: top;
+  background-color: var(--grey);
+  color: var(--orange);
 }
 
 .table--row--item--text {
@@ -114,8 +117,8 @@ table, th, td {
 }
 
 .form__text--answer--select {
-	background-color: var(--grey);
-	border-color: var(--dark);
+	background-color: var(--dark);
+	border-color: var(--orange);
 	color: var(--orange);
 }
 
