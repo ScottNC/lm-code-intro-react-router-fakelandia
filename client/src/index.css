@@ -102,55 +102,16 @@ table, th, td {
   max-width: 10rem;
 }
 
-/* .form {
-	display: flex;
-	margin: 3rem;
-}
+@media screen and (max-width: 600px) {
+  
+  .table--row--item {
+    padding: 5px;
+  }
 
-.form__border {
-	padding: 0.75em;
-	padding-right: 1em;
-	border-radius: 7px;
-	border-color: var(--dark);
-	border-width: 2px;
+  img {
+    width: 100px;
+  }
 }
-
-.form__text {
-  padding: 0.2rem;
-	margin: 0.4em;
-	border-radius: 5px;
-}
-
-.form__text--answer--select {
-	background-color: var(--dark);
-	border-color: var(--orange);
-	color: var(--orange);
-}
-
-.form__text--answer--fill {
-	background-color: var(--orange);
-	border-color: var(--dark);
-}
-
-.form__text--right {
-  margin-left: auto;
-}
-
-.form__text--right--fill {
-  width: 15rem;
-}
-
-.form__text--answer--fill--big {
-  width: 100%;
-}
-
-.form__text--answer--submit {
-  width: 30%;
-	margin-top: 0.3em;
-	background-color: var(--dark);
-	border-color: var(--orange);
-  color: var(--orange);
-} */
 
 .form {
 	display: flex;
