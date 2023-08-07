@@ -14,7 +14,7 @@ export const MisdemeanourFilter : React.FC = () => {
   <select className="table--row--item--menu form__text--answer--select" onChange={changeFilter} value={filter}>
     <option value={'no filter'}>No filter</option>
     {MISDEMEANOURS.map((misdemeanourName : MisdemeanourKind) => (
-      <option value={misdemeanourName}>{misdemeanourDisplay[misdemeanourName]}</option>
+      <option value={misdemeanourName}>{misdemeanourDisplay[misdemeanourName].slice(-2)}</option>
     ))}
   </select>)
 }
