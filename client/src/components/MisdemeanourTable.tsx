@@ -1,8 +1,7 @@
 import React, { createContext, useContext, useEffect, useState } from "react";
-import { Misdemeanour } from "../types/misdemeanours.types";
+import { Misdemeanour, MISDEMEANOURS } from "../types/misdemeanours.types";
 import { MisdemeanourRow } from "./MisdemeanourRow";
 import { MisdemeanourFilter } from "./MisdemeanourFilter";
-import { MISDEMEANOURS } from "../types/misdemeanours.types";
 import { MisdemeanoursContext } from "../App";
 import { v4 } from "uuid";
 
@@ -40,7 +39,7 @@ export const MisdemeanourTable: React.FC = () => {
               <th className="table--row--item table--row--item--title"><p>Citizen ID</p></th>
               <th className="table--row--item table--row--item--title"><p>Date</p></th>
               <th className="table--row--item table--row--item--title"><p>Misdemeanour</p> <MisdemeanourFilter /> </th>
-              <th className="table--row--item table--row--item--title"><p>Punishment Idea</p></th>
+              <th className="table--row--item table--row--item--title table--row--item--punishment"><p className="table--row--item--punishment">Punishment Idea</p></th>
             </tr>
             {[...extraMisdemeanours, ...misdemeanours].filter(filterMisdemeanour).map((misdemeanour: Misdemeanour) => (
               <MisdemeanourRow key={v4()} citizenId={misdemeanour.citizenId} date={misdemeanour.date} misdemeanour={misdemeanour.misdemeanour}/>
