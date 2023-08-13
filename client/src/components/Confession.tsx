@@ -11,9 +11,7 @@ export const Confession : React.FC = () => {
       <p className="text__paragraph">
         However, if you're just having a hard day and need to vent the you're welcome to contact us here too. Up to you!
       </p>
-      <div className="form">
-        <ConfessionForm></ConfessionForm>
-      </div>
+      <ConfessionForm></ConfessionForm>
     </div>
   );
 }
