@@ -13,32 +13,32 @@ describe('MisdemeanourTable', () => {
           misdemeanours: [
             {
               citizenId: 1,
-              misdeamanour: 'united',
+              misdemeanour: 'united',
               date: '01/01/2000'
             },
             {
               citizenId: 2,
-              misdeamanour: 'lift',
+              misdemeanour: 'lift',
               date: '01/01/2000'
             },
             {
               citizenId: 3,
-              misdeamanour: 'lift',
+              misdemeanour: 'lift',
               date: '01/01/2000'
             },
             {
               citizenId: 4,
-              misdeamanour: 'vegetables',
+              misdemeanour: 'vegetables',
               date: '01/01/2000'
             },
             {
               citizenId: 5,
-              misdeamanour: 'vegetables',
+              misdemeanour: 'vegetables',
               date: '01/01/2000'
             },
             {
               citizenId: 6,
-              misdeamanour: 'rudeness',
+              misdemeanour: 'rudeness',
               date: '01/01/2000'
             },
           ]
@@ -61,5 +61,11 @@ describe('MisdemeanourTable', () => {
     expect(fetch).toHaveBeenCalledWith(
       'http://localhost:8080/api/misdemeanours/10'
     );
+
+    const table = document.querySelector('.table');
+    expect(table).toBeInTheDocument();
+
+    const rows = table?.querySelectorAll('.table--row');
+    expect(rows?.length).toBe(7);
   });
 });
