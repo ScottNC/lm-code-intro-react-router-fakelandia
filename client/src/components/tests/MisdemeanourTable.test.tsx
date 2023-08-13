@@ -88,10 +88,26 @@ describe('MisdemeanourTable', () => {
 
     await userEvent.selectOptions(selectElement, '🤪');
 
-    const table = document.querySelector('.table');
+    let table = document.querySelector('.table');
     expect(table).toBeInTheDocument();
 
-    const rows = table?.querySelectorAll('.table--row');
+    let rows = table?.querySelectorAll('.table--row');
     expect(rows?.length).toBe(2);
+
+    await userEvent.selectOptions(selectElement, 'no filter');
+
+    table = document.querySelector('.table');
+    expect(table).toBeInTheDocument();
+
+    rows = table?.querySelectorAll('.table--row');
+    expect(rows?.length).toBe(7);
+
+    await userEvent.selectOptions(selectElement, '🗣');
+
+    table = document.querySelector('.table');
+    expect(table).toBeInTheDocument();
+
+    rows = table?.querySelectorAll('.table--row');
+    expect(rows?.length).toBe(3);
   });
 });
