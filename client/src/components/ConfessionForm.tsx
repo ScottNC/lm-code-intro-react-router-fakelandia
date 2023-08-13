@@ -78,20 +78,20 @@ export const ConfessionForm : React.FC = () => {
       <fieldset className='form__border'>
         <form className="text" onSubmit={handleSubmit}>
           <div className="form__text">
-            <label className="form__text--label">Subject:</label>
-            <input data-testid="Subject" className="form__text form__text--answer form__text--answer--fill" type="text" onChange={handleChange} ref={subjectRef} />
+            <label htmlFor="Subject" className="form__text--label">Subject:</label>
+            <input id="Subject" data-testid="Subject" className="form__text form__text--answer form__text--answer--fill" type="text" onChange={handleChange} ref={subjectRef} />
           </div>
           <div className="form__text">
-            <label className="form__text--label" >Reason for contact:</label>
-            <select data-testid="Reason" className="form__text form__text--answer form__text--answer--select" ref={reasonRef}>
+            <label htmlFor="Reason" className="form__text--label" >Reason for contact:</label>
+            <select id="Reason" data-testid="Reason" className="form__text form__text--answer form__text--answer--select" ref={reasonRef}>
             {Object.entries(reasons).map(([key, value]: [string, string]) => (
               <option key={key} value={key}>{value}</option>
             ))}
             </select>
           </div>
           <div className="form__text">
-          <label className="form__text--label" >Details:</label>
-            <textarea data-testid="Details" className="form__text form__text--answer form__text--answer--fill" onChange={handleChange} rows={5} cols={30} ref={detailsRef} />
+          <label htmlFor="Details" className="form__text--label" >Details:</label>
+            <textarea id="Details" data-testid="Details" className="form__text form__text--answer form__text--answer--fill" onChange={handleChange} rows={5} cols={30} ref={detailsRef} />
           </div>
           <button className="form__text form__text--answer form__text--answer--submit" disabled={disableButton} type="submit">Confess</button>
         </form>
