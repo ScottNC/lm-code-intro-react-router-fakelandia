@@ -40,5 +40,9 @@ describe('MisdemeanourTable', () => {
     const details = screen.getByTestId('Details');
     expect(details).toBeInTheDocument();
     expect(details.tagName.toLowerCase()).toBe('textarea');
+
+    const button = screen.getByRole('button');
+    expect(button).toBeInTheDocument();
+    expect(button).toBeDisabled();
   })
 });
