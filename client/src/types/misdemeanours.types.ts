@@ -22,3 +22,8 @@ export const misdemeanourDisplay : {[key in typeof MISDEMEANOURS[number]] : stri
   vegetables: 'Not Eating Your Vegetables 🥗',
   united: 'Supporting Manchester United 😈'
 }
+
+export type News = {
+	headline: string | null;
+	report: string | null;
+}

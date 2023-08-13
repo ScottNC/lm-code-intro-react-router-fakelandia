@@ -1,23 +1,24 @@
 import { useState, useEffect } from "react";
+import { News } from "../types/misdemeanours.types";
 
 export const Headline: React.FC = () => {
-  const [headline, setHeadline] = useState<string | null | undefined>(undefined);
+  const [news, setNews] = useState<News | null | undefined>(undefined);
 
   useEffect(() => {
     fetch("http://localhost:8080/api/headline")
-      .then(response => response.text())
-      .then(data => setHeadline(data))
+      .then(response => response.json())
+      .then(data => setNews(data))
   },[])
 
-  if (headline === undefined)
+  if (news === undefined)
     return (
       <div className="text text--block">
         <p className="text__paragraph">
-          Healine Loading...
+          Daily News Loading...
         </p>
       </div>
     );
-  else if (headline === null) return (<></>);
+  else if (news === null) return (<></>);
   else
     return (
       <div className="text text--block">
@@ -25,9 +26,14 @@ export const Headline: React.FC = () => {
           Fakelandian Daily News
         </h2>
         <h3 className="text__paragraph">
-          {headline}
+          {news.headline}
         </h3>
         <img className="image--headline" src={`https://picsum.photos/500/400?headline=1`} alt={`Daily News`}/>
+        {news.report?.split('\n\n').map((paragraph: string) => (
+          <p className="text__paragraph">
+            {paragraph}
+        </p>
+        ))}
       </div>
   );
 }

@@ -14,3 +14,8 @@ export type Misdemeanour = {
 	misdemeanour: MisdemeanourKind;
 	date: string; // we'll stringify this for easy sending via HTTP rather than storing the full Date object
 };
+
+export type News = {
+	headline: string | null;
+	report: string | null;
+}
