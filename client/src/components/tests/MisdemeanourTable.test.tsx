@@ -1,6 +1,7 @@
-import { act, render } from '@testing-library/react';
+import { act, render, screen } from '@testing-library/react';
 import { MisdemeanourTable } from '../MisdemeanourTable';
 import { MemoryRouter } from 'react-router-dom';
+import userEvent from '@testing-library/user-event';
 
 import 'jest-fetch-mock';
 global.fetch = require('jest-fetch-mock');
@@ -49,7 +50,7 @@ describe('MisdemeanourTable', () => {
   afterEach(() => {
     jest.restoreAllMocks();
   });
-  it('calls fetch when component is rendered', async () => {
+  it('displays a table with the title and all the rows', async () => {
     await act(async () => {
       render(
         <MemoryRouter>
@@ -67,5 +68,30 @@ describe('MisdemeanourTable', () => {
 
     const rows = table?.querySelectorAll('.table--row');
     expect(rows?.length).toBe(7);
+  });
+
+  it('should filter for different misdemeanours', async () => {
+    await act(async () => {
+      render(
+        <MemoryRouter>
+          <MisdemeanourTable />
+        </MemoryRouter>
+      );
+    });
+    
+    expect(fetch).toHaveBeenCalledWith(
+      'http://localhost:8080/api/misdemeanours/10'
+    );
+
+    const selectElement = screen.getByRole('combobox');
+    expect(selectElement).toBeInTheDocument();
+
+    await userEvent.selectOptions(selectElement, '🤪');
+
+    const table = document.querySelector('.table');
+    expect(table).toBeInTheDocument();
+
+    const rows = table?.querySelectorAll('.table--row');
+    expect(rows?.length).toBe(2);
   });
 });
