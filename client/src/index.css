@@ -131,6 +131,13 @@ table, th, td {
   max-width: 10rem;
 }
 
+.image--headline {
+  margin-top: 2%;
+  margin-bottom: 5%;
+  border: solid 2px var(--dark);
+  width: 500px;
+}
+
 @media screen and (max-width: 925px) {
   .header__card {
     text-align: center;
@@ -161,8 +168,12 @@ table, th, td {
     font-size: 0.9em;
   }
 
-  img {
+  .image--table {
     width: 100px;
+  }
+
+  .image--headline {
+    width: 300px;
   }
 
   .navbar__container--link {
@@ -172,9 +183,15 @@ table, th, td {
 }
 
 @media screen and (max-width: 425px) {
-  img {
+
+  .image--table {
     display: none;
   }
+
+  .image--headline {
+    width: 200px;
+  }
+
   .table--row--item--punishment {
     display: none;
   }
