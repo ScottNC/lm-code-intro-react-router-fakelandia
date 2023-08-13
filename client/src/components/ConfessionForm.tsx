@@ -16,9 +16,22 @@ export const ConfessionForm : React.FC = () => {
 
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
+  const [disableButton, setDisableButton] = useState<boolean>(true);
+
   const subjectRef = useRef<HTMLInputElement | null>(null);
   const reasonRef = useRef<HTMLSelectElement | null>(null); 
   const detailsRef = useRef<HTMLTextAreaElement | null>(null);
+
+  const handleChange = (event: FormEvent<HTMLInputElement> | FormEvent<HTMLTextAreaElement>) => {
+    event.preventDefault();
+
+    const subject = subjectRef.current?.value;
+    const details = detailsRef.current?.value;
+
+    console.log(!subject || !details);
+
+    setDisableButton(!subject || !details);
+  }
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -59,7 +72,7 @@ export const ConfessionForm : React.FC = () => {
         <form className="text" onSubmit={handleSubmit}>
           <div className="form__text">
             <label className="form__text--label">Subject:</label>
-            <input className="form__text form__text--answer form__text--answer--fill" type="text" ref={subjectRef} required/>
+            <input className="form__text form__text--answer form__text--answer--fill" type="text" onChange={handleChange} ref={subjectRef} />
           </div>
           <div className="form__text">
             <label className="form__text--label" >Reason for contact:</label>
@@ -71,9 +84,9 @@ export const ConfessionForm : React.FC = () => {
           </div>
           <div className="form__text">
           <label className="form__text--label" >Details:</label>
-            <textarea className="form__text form__text--answer form__text--answer--fill" rows={5} cols={30} ref={detailsRef} required/>
+            <textarea className="form__text form__text--answer form__text--answer--fill" onChange={handleChange} rows={5} cols={30} ref={detailsRef} />
           </div>
-          <button className="form__text form__text--answer form__text--answer--submit" type="submit">Confess</button>
+          <button className="form__text form__text--answer form__text--answer--submit" disabled={disableButton} type="submit">Confess</button>
         </form>
         <ErrorMessage message={errorMessage}></ErrorMessage>
       </fieldset>

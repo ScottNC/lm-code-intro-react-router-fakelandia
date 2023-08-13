@@ -196,6 +196,7 @@ table, th, td {
 
 .form__text--answer {
   width: 100%;
+  font-family: Rockwell, Courier Bold, Courier, Georgia, Times, Times New Roman, serif;
   padding: 8px;
   margin-right: auto;
   border: 1px solid var(--dark);
@@ -223,4 +224,8 @@ table, th, td {
 
 .form__text--answer--submit:active {
   filter: brightness(85%);
+}
+
+.form__text--answer--submit:disabled {
+  filter: brightness(70%);
 }
