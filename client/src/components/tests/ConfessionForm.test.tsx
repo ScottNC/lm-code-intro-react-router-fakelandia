@@ -61,7 +61,7 @@ describe('MisdemeanourTable', () => {
     await userEvent.type(subject, 'hello');
 
     const details = screen.getByTestId('Details');
-    await userEvent.type(details, 'blah blah blah');
+    await userEvent.type(details, 'blah blah blah blah blah blah');
 
     const button = screen.getByRole('button');
     expect(button).not.toBeDisabled();
@@ -84,7 +84,7 @@ describe('MisdemeanourTable', () => {
     await userEvent.selectOptions(reason, 'I just want to talk');
 
     const details = screen.getByTestId('Details');
-    await userEvent.type(details, 'blah blah blah');
+    await userEvent.type(details, 'blah blah blah blah blah blah');
 
     const button = screen.getByRole('button');
     expect(button).not.toBeDisabled();
@@ -97,7 +97,7 @@ describe('MisdemeanourTable', () => {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ subject : 'hello', reason : 'just-talk', details: 'blah blah blah' })
+      body: JSON.stringify({ subject : 'hello', reason : 'just-talk', details: 'blah blah blah blah blah blah' })
     });
   });
 
@@ -118,7 +118,7 @@ describe('MisdemeanourTable', () => {
     await userEvent.selectOptions(reason, 'Not Eating Your Vegetables 🥗');
 
     const details = screen.getByTestId('Details');
-    await userEvent.type(details, 'blah blah blah');
+    await userEvent.type(details, 'blah blah blah blah blah blah');
 
     const button = screen.getByRole('button');
     expect(button).not.toBeDisabled();
@@ -131,7 +131,7 @@ describe('MisdemeanourTable', () => {
         'Accept': 'application/json',
         'Content-Type': 'application/json'
       },
-      body: JSON.stringify({ subject : 'hello', reason : 'vegetables', details: 'blah blah blah' })
+      body: JSON.stringify({ subject : 'hello', reason : 'vegetables', details: 'blah blah blah blah blah blah' })
     });
   });
 });
