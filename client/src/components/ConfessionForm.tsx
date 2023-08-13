@@ -15,6 +15,8 @@ export const ConfessionForm : React.FC = () => {
   const { setExtraMisdemeanours } = useContext(MisdemeanoursContext);
 
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [subjectError, setSubjectError] = useState<string | null>('Subject must be at least 5 charcters');
+  const [detailsError, setDetailsError] = useState<string | null>('Details must be at least 20 charcters');
 
   const [disableButton, setDisableButton] = useState<boolean>(true);
 
@@ -28,7 +30,13 @@ export const ConfessionForm : React.FC = () => {
     const subject = subjectRef.current?.value;
     const details = detailsRef.current?.value;
 
-    setDisableButton(!subject || !details);
+    const subjectPass : boolean = (!!subject && subject.length >= 5);
+    const detailsPass : boolean = (!!details && details.length >= 20);
+
+    setSubjectError(subjectPass ? null : 'Subject must be at least 5 charcters');
+    setDetailsError(detailsPass ? null : 'Details must be at least 20 charcters');
+
+    setDisableButton(!subjectPass || !detailsPass);
   }
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
@@ -80,6 +88,7 @@ export const ConfessionForm : React.FC = () => {
           <div className="form__text">
             <label htmlFor="Subject" className="form__text--label">Subject:</label>
             <input id="Subject" data-testid="Subject" className="form__text form__text--answer form__text--answer--fill" type="text" onChange={handleChange} ref={subjectRef} />
+            <ErrorMessage message={subjectError} />
           </div>
           <div className="form__text">
             <label htmlFor="Reason" className="form__text--label" >Reason for contact:</label>
@@ -92,6 +101,7 @@ export const ConfessionForm : React.FC = () => {
           <div className="form__text">
           <label htmlFor="Details" className="form__text--label" >Details:</label>
             <textarea id="Details" data-testid="Details" className="form__text form__text--answer form__text--answer--fill" onChange={handleChange} rows={5} cols={30} ref={detailsRef} />
+            <ErrorMessage message={detailsError} />
           </div>
           <button className="form__text form__text--answer form__text--answer--submit" disabled={disableButton} type="submit">Confess</button>
         </form>
