@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useMemo, useState } from "react";
 import { Misdemeanour, MISDEMEANOURS } from "../types/misdemeanours.types";
 import { MisdemeanourRow } from "./MisdemeanourRow";
 import { MisdemeanourFilter } from "./MisdemeanourFilter";
@@ -20,6 +20,8 @@ export const MisdemeanourTable: React.FC = () => {
 
   const { extraMisdemeanours } = useContext(MisdemeanoursContext);
 
+  const filterObject = useMemo(() => ({filter, setFilter}),[filter, setFilter]);
+
   useEffect(() => {
     fetch("http://localhost:8080/api/misdemeanours/10")
       .then(response => response.json())
@@ -31,7 +33,7 @@ export const MisdemeanourTable: React.FC = () => {
   }
 
   return misdemeanours.length ? (
-    <FilterContext.Provider value={{ filter, setFilter }}>
+    <FilterContext.Provider value={filterObject}>
       <div className="text">
         <table className="table">
           <tbody>
