@@ -1,5 +1,5 @@
 export const Home : React.FC = () => (
-  <div className="text">
+  <div className="text text--block">
     <p className="text__paragraph">
       Welcome to the home of the Justice Department of Fakelandia!
     </p>

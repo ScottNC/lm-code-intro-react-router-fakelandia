@@ -49,7 +49,7 @@ export const MisdemeanourTable: React.FC = () => {
       </div>
     </FilterContext.Provider>
   ) : (
-    <div className="text">
+    <div className="text text--block">
       <p className="text__paragraph">
         Misdemeanours Loading....
       </p>

@@ -75,9 +75,9 @@ export const ConfessionForm : React.FC = () => {
           </div>
           <button className="form__text form__text--answer form__text--answer--submit" type="submit">Confess</button>
         </form>
+        <ErrorMessage message={errorMessage}></ErrorMessage>
       </fieldset>
     </div>
-    <ErrorMessage message={errorMessage}></ErrorMessage>
     </>
   );
 }

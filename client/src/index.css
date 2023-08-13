@@ -4,7 +4,7 @@
 	--light: #F9F6F6;
   --navy: #2A3C77;
 	--blue: #7EADBD;
-	--purple: #A78EA3;
+	--purple: #b87cae;
   --orange: #BA4936;
 }
 
@@ -69,6 +69,20 @@ body {
   flex-direction: column;
   align-items: center;
   margin: 20px;
+}
+
+.text--block {
+  border-radius: 3px;
+  border-style: solid;
+  border-color: var(--dark);
+  border-width: 2px;
+  color: var(--light);
+  background-color: var(--purple);
+}
+
+.text--error {
+  font-weight: bold;
+  color: var(--orange);
 }
 
 .table__container {
@@ -157,6 +171,7 @@ table, th, td {
 
 .form {
 	display: flex;
+  flex-direction: column;
 	margin: 3rem;
 }
 
