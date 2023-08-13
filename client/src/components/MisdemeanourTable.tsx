@@ -44,7 +44,7 @@ export const MisdemeanourTable: React.FC = () => {
               <th className="table--row--item table--row--item--title table--row--item--punishment"><p className="table--row--item--punishment">Punishment Idea</p></th>
             </tr>
             {[...extraMisdemeanours, ...misdemeanours].filter(filterMisdemeanour).map((misdemeanour: Misdemeanour) => (
-              <MisdemeanourRow key={v4()} citizenId={misdemeanour.citizenId} date={misdemeanour.date} misdemeanour={misdemeanour.misdemeanour}/>
+              <MisdemeanourRow key={v4()} citizenId={misdemeanour.citizenId} date={misdemeanour.date} misdemeanour={misdemeanour.misdemeanour} options={misdemeanour.options}/>
             ))}
           </tbody>
         </table>

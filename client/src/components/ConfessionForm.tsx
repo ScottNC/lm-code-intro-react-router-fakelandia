@@ -55,7 +55,8 @@ export const ConfessionForm : React.FC = () => {
         {
           citizenId: Math.floor(rand(66) + rand(90) * rand(823)),
           misdemeanour: reason as MisdemeanourKind,
-          date: new Date().toLocaleDateString()
+          date: new Date().toLocaleDateString(),
+          options: ( subject && details ) ? {subject, details} : undefined
         }
       ]);
     }

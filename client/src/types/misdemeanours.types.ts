@@ -13,6 +13,7 @@ export type Misdemeanour = {
 	citizenId: number;
 	misdemeanour: MisdemeanourKind;
 	date: string; // we'll stringify this for easy sending via HTTP rather than storing the full Date object
+	options: undefined | {subject: string, details: string};
 };
 
 export const misdemeanourDisplay : {[key in typeof MISDEMEANOURS[number]] : string} = {
