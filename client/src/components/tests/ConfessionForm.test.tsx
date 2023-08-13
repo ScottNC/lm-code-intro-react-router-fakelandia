@@ -100,4 +100,38 @@ describe('MisdemeanourTable', () => {
       body: JSON.stringify({ subject : 'hello', reason : 'just-talk', details: 'blah blah blah' })
     });
   });
+
+  it('should send correct query when user wants to talk', async () => {
+
+    await act(async () => {
+      render(
+        <MemoryRouter>
+          <ConfessionForm />
+        </MemoryRouter>
+      );
+    });
+
+    const subject = screen.getByTestId('Subject');
+    await userEvent.type(subject, 'hello');
+
+    const reason = screen.getByTestId('Reason');
+    await userEvent.selectOptions(reason, 'Not Eating Your Vegetables 🥗');
+
+    const details = screen.getByTestId('Details');
+    await userEvent.type(details, 'blah blah blah');
+
+    const button = screen.getByRole('button');
+    expect(button).not.toBeDisabled();
+
+    await userEvent.click(button);
+
+    expect(fetch).toHaveBeenCalledWith('http://localhost:8080/api/confess', {
+      method: 'POST',
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify({ subject : 'hello', reason : 'vegetables', details: 'blah blah blah' })
+    });
+  });
 });
