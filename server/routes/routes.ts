@@ -5,6 +5,7 @@ import {
 	handleConfession,
 	weaklyValidateConfession,
 } from '../services/midemeanours_service';
+import { getHeadline} from '../services/headline';
 
 export function initialiseRoutes(app: Express) {
 	console.log('🏗️  Setting up routers...');
@@ -60,6 +61,12 @@ function addAPIRoutes(app: Express) {
 		const result = JSON.stringify({
 			misdemeanours: await getMisdemeanours(requestedAmount),
 		});
+		res.status(200).send(result);
+	});
+
+	console.log('📨  Adding GET headline route...');
+	apiRouter.get('/headline', async (req, res) => {
+		const result = await getHeadline();
 		res.status(200).send(result);
 	});
 
