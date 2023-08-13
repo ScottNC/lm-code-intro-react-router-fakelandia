@@ -42,6 +42,10 @@ body {
   justify-content: right;
 }
 
+.menu {
+  margin: 0
+}
+
 .navbar__container--link {
   list-style: none;
   padding-left: 3em;
