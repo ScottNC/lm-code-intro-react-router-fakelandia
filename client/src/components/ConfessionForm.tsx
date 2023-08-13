@@ -28,8 +28,6 @@ export const ConfessionForm : React.FC = () => {
     const subject = subjectRef.current?.value;
     const details = detailsRef.current?.value;
 
-    console.log(!subject || !details);
-
     setDisableButton(!subject || !details);
   }
 

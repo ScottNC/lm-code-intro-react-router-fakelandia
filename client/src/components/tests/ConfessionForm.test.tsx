@@ -3,6 +3,7 @@ import { MemoryRouter } from 'react-router-dom';
 
 import 'jest-fetch-mock';
 import { ConfessionForm } from '../ConfessionForm';
+import userEvent from '@testing-library/user-event';
 global.fetch = require('jest-fetch-mock');
 
 describe('MisdemeanourTable', () => {
@@ -44,5 +45,25 @@ describe('MisdemeanourTable', () => {
     const button = screen.getByRole('button');
     expect(button).toBeInTheDocument();
     expect(button).toBeDisabled();
+  });
+
+  it('button should enable when form is filled in', async () => {
+
+    await act(async () => {
+      render(
+        <MemoryRouter>
+          <ConfessionForm />
+        </MemoryRouter>
+      );
+    });
+
+    const subject = screen.getByTestId('Subject');
+    await userEvent.type(subject, 'hello');
+
+    const details = screen.getByTestId('Details');
+    await userEvent.type(details, 'blah blah blah');
+
+    const button = screen.getByRole('button');
+    expect(button).not.toBeDisabled();
   })
 });
